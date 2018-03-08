@@ -1,3 +1,7 @@
-let AmbientTemperature = 0
-NTCSenor.set(NTC_B.B3950)
-AmbientTemperature = NTCSenor.getTemperature(pins.analogReadPin(AnalogPin.P1))
+let item = 0
+item = 0
+basic.forever(() => {
+    FourDigitDisplay.show(item)
+    item += 2
+    basic.pause(1000)
+})
