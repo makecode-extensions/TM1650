@@ -6,17 +6,17 @@ Four Digit Display is a Module with four 7-segment LED, it can show number. It h
 Author: shaoziyang  
 Date:   2018.Mar  
 
-![](https://raw.githubusercontent.com/microbit-makecode-packages/FourDigitDisplay/master/icon.png)
+![](https://raw.githubusercontent.com/microbit-makecode-packages/TM1650/master/icon.png)
 
 ## Usage
 
 open your microbit makecode project, in Add Package, paste  
 
-https://github.com/microbit-makecode-packages/FourDigitDisplay  
+https://github.com/microbit-makecode-packages/TM1650  
 
 to search box then search.
 
-![](https://raw.githubusercontent.com/microbit-makecode-packages/FourDigitDisplay/master/4-LED.jpg)
+![](https://raw.githubusercontent.com/microbit-makecode-packages/TM1650/master/4-LED.jpg)
 
 ## API
 
@@ -48,7 +48,7 @@ set display intensity.
 
 ## Demo
 
-![](https://raw.githubusercontent.com/microbit-makecode-packages/FourDigitDisplay/master/demo.jpg)
+![](https://raw.githubusercontent.com/microbit-makecode-packages/TM1650/master/demo.jpg)
 
 ## License  
 
