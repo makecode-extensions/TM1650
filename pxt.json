@@ -1,5 +1,5 @@
 {
-    "name": "FourDigitDisplay",
+    "name": "TM1650",
     "version": "1.0.0",
     "description": "makecode Four Digit Display (TM1650) package for micro:bit",
     "license": "MIT",

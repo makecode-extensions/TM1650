@@ -8,7 +8,7 @@
  * Four Digit Display
  */
 //% weight=100 color=#64C800 icon="日"
-namespace FourDigitDisplay {
+namespace TM1650 {
 
     let COMMAND_I2C_ADDRESS = 0x24
     let DISPLAY_I2C_ADDRESS = 0x34
