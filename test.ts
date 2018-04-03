@@ -1,7 +1,7 @@
 let item = 0
 item = 0
 basic.forever(() => {
-    FourDigitDisplay.show(item)
-    item += 2
+    TM1650.showNumber(item)
+    item += 1
     basic.pause(1000)
 })

@@ -5,14 +5,14 @@
  */
 
 /**
- * Four Digit Display
+ * TM1650 digit Display
  */
-//% weight=100 color=#64C800 icon="日"
+//% weight=100 color=#64C800 icon="8" block="TM1650"
 namespace TM1650 {
 
     let COMMAND_I2C_ADDRESS = 0x24
     let DISPLAY_I2C_ADDRESS = 0x34
-    let buf = [0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71];
+    let _SEG = [0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71];
 
     let _intensity = 3
     let dbuf = [0, 0, 0, 0]
@@ -36,7 +36,8 @@ namespace TM1650 {
     /**
      * turn on display
      */
-    //% block
+    //% blockId="TM650_ON" block="turn on display"
+    //% weight=50 blockGap=8
     export function on() {
         cmd(_intensity * 16 + 1)
     }
@@ -44,7 +45,8 @@ namespace TM1650 {
     /**
      * turn off display
      */
-    //% block
+    //% blockId="TM650_OFF" block="turn off display"
+    //% weight=50 blockGap=8
     export function off() {
         _intensity = 0
         cmd(0)
@@ -53,7 +55,8 @@ namespace TM1650 {
     /**
      * clear display content
      */
-    //% block
+    //% blockId="TM650_CLEAR" block="clear display"
+    //% weight=40 blockGap=8
     export function clear() {
         dat(0, 0)
         dat(1, 0)
@@ -67,19 +70,21 @@ namespace TM1650 {
      * @param digit is number (0-15) will be shown, eg: 1
      * @param bit is position, eg: 0
      */
-    //% block
+    //% blockId="TM650_DIGIT" block="show digit %num|at %bit"
+    //% weight=80 blockGap=8
     //% num.max=15 num.min=0
     export function digit(num: number, bit: number) {
-        dbuf[bit % 4] = buf[num % 16]
-        dat(bit, buf[num % 16])
+        dbuf[bit % 4] = _SEG[num % 16]
+        dat(bit, _SEG[num % 16])
     }
 
     /**
      * show a number in display
      * @param num is number will be shown, eg: 100
      */
-    //% block
-    export function show(num: number) {
+    //% blockId="TM650_SHOW_NUMBER" block="show number %num"
+    //% weight=100 blockGap=8
+    export function showNumber(num: number) {
         if (num < 0) {
             dat(0, 0x40) // '-'
             num = -num
@@ -95,7 +100,8 @@ namespace TM1650 {
      * show a number in hex format
      * @param num is number will be shown, eg: 123
      */
-    //% block
+    //% blockId="TM650_SHOW_HEX_NUMBER" block="show hex number %num"
+    //% weight=90 blockGap=8
     export function ShowHex(num: number) {
         if (num < 0) {
             dat(0, 0x40) // '-'
@@ -113,7 +119,8 @@ namespace TM1650 {
      * @param bit is positiion, eg: 0
      * @param show is true/false, eg: true
      */
-    //% block
+    //% blockId="TM650_SHOW_DP" block="show dot point %bit|show %num"
+    //% weight=80 blockGap=8
     export function showDpAt(bit: number, show: boolean) {
         if (show) dat(bit, dbuf[bit % 4] | 0x80)
         else dat(bit, dbuf[bit % 4] & 0x7F)
@@ -123,7 +130,8 @@ namespace TM1650 {
      * set display intensity
      * @param dat is intensity of the display, eg: 3
      */
-    //% block
+    //% blockId="TM650_INTENSITY" block="set intensity %dat"
+    //% weight=70 blockGap=8
     export function setIntensity(dat: number) {
         if ((dat < 0) || (dat > 8))
             return;

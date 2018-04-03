@@ -1,7 +1,7 @@
 {
     "name": "TM1650",
-    "version": "1.0.0",
-    "description": "makecode Four Digit Display (TM1650) package for micro:bit",
+    "version": "1.1.0",
+    "description": "makecode TM1650 (Digit Display) package for micro:bit",
     "license": "MIT",
     "dependencies": {
         "core": "*"
