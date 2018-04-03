@@ -32,10 +32,10 @@ clear content of the display.
 - **digit(num: number, bit: number)**  
 show a digit number in given position.  
 
-- **show(num: number)**  
+- **showNumber(num: number)**  
 show a interger number in display.  
 
-- **ShowHex(num: number)**  
+- **showHex(num: number)**  
 show a hex number.  
 
 - **showDpAt(bit: number, show: boolean)**  

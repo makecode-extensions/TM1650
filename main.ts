@@ -102,7 +102,7 @@ namespace TM1650 {
      */
     //% blockId="TM650_SHOW_HEX_NUMBER" block="show hex number %num"
     //% weight=90 blockGap=8
-    export function ShowHex(num: number) {
+    export function showHex(num: number) {
         if (num < 0) {
             dat(0, 0x40) // '-'
             num = -num
